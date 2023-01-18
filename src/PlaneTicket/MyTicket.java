@@ -22,39 +22,41 @@ public class MyTicket {
 		double total;
 		total = km * perKm;
 
-		if (age > 0 && age < 12 && km > 0) {
-			if (flighttype == 1) {
-				System.out.println("Price = " + (total * 0.5));
-			}
-			if (flighttype == 2) {
-				System.out.println("Price = " + (total * 0.5 * 0.8));
+		if (age > 0 && km > 0 && (flighttype == 1 || flighttype == 2)) {
+
+			if (age < 12) {
+				if (flighttype == 1) {
+					System.out.println("Price = " + (total * 0.5));
+				}
+				if (flighttype == 2) {
+					System.out.println("Price = " + (total * 0.5 * 0.8));
+				}
+
+			} else if (age > 12 && age <= 24 && km > 0) {
+				if (flighttype == 1) {
+					System.out.println("Price = " + (total * 0.9));
+				}
+				if (flighttype == 2) {
+					System.out.println("Price = " + (total * 0.9 * 0.8));
+				}
+			} else if (age <= 65 && age > 24 && km > 0) {
+				if (flighttype == 1) {
+					System.out.println("Price = " + (total));
+				}
+				if (flighttype == 2) {
+					System.out.println("Price = " + (total * 0.8));
+				}
+			} else if (age > 65 && km > 0) {
+				if (flighttype == 1) {
+					System.out.println("Price = " + (total * 0.7));
+				}
+				if (flighttype == 2) {
+					System.out.println("Price = " + (total * 0.7 * 0.8));
+				}
 			}
 
-		} else if (age > 12 && age <= 24 && km > 0) {
-			if (flighttype == 1) {
-				System.out.println("Price = " + (total * 0.9));
-			}
-			if (flighttype == 2) {
-				System.out.println("Price = " + (total * 0.9 * 0.8));
-			}
-		} else if (age <= 65 && age > 24 && km > 0) {
-			if (flighttype == 1) {
-				System.out.println("Price = " + (total));
-			}
-			if (flighttype == 2) {
-				System.out.println("Price = " + (total * 0.8));
-			}
-		} else if (age > 65 && km > 0) {
-			if (flighttype == 1) {
-				System.out.println("Price = " + (total * 0.7));
-			}
-			if (flighttype == 2) {
-				System.out.println("Price = " + (total * 0.7 * 0.8));
-			}
 		} else {
 			System.out.println("Wrong information!!!!!!!!!!!");
-
 		}
-
 	}
 }
